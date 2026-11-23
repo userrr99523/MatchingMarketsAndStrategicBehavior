@@ -1,0 +1,11 @@
+#!/bin/sh
+#SBATCH -A 0
+#SBATCH -N 1
+#SBATCH -p RM-shared
+#SBATCH -t 48:00:00
+#SBATCH --ntasks-per-node=64
+#SBATCH --account=see180003p
+set -x
+conda activate llm-setup
+export HF_HOME=/ocean/projects/see180003p/skhanna1/hf_home
+python3 -u two_for_one.py
